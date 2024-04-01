@@ -5,6 +5,7 @@ local options = {
     css = { { "prettierd", "prettier" } },
     javascript = { { "prettierd", "prettier" } },
     typescript = { { "prettierd", "prettier" } },
+    cpp = { "clang_format" },
     c = { "clang_format" },
   },
 
@@ -15,7 +16,7 @@ local options = {
 
   format_after_save = {
     lsp_fallback = true,
-  }
+  },
 
   notify_on_error = true,
 }
