@@ -1,33 +1,29 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local configs = require "nvchad.configs.lspconfig"
 
-local lspconfig = require "lspconfig"
 local servers = {
-  "html",
-  "cssls",
-  "clangd", "rust_analyzer", "tsserver",
-  "tailwindcss",
-  "bashls",
-  "pyright",
-  "volar",
-  "cmake",
-  "asm_lsp",
+  html = {},
+  cssls = {},
+  rust_analyzer = {},
+  tsserver = {},
+  tailwindcss = {},
+  bashls = {},
+  pyright = {},
+  volar = {},
+  cmake = {},
+  asm_lsp = {},
+
+  clangd = {
+    on_attach = function(client, bufnr)
+      client.server_capabilities.signatureHelpProvider = false
+      configs.on_attach(client, bufnr)
+    end,
+  },
 }
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+for name, opts in pairs(servers) do
+  opts.on_init = configs.on_init
+  opts.on_attach = opts.on_attach or configs.on_attach
+  opts.capabilities = configs.capabilities
+
+  require("lspconfig")[name].setup(opts)
 end
-
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.sigmatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
