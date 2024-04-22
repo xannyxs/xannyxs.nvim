@@ -113,6 +113,16 @@ local plugins = {
         "cmake",
         "make",
       },
+      auto_install = true,
+      highlight = {
+        enable = true,
+      },
+      incremental_selection = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
     },
   },
   {
@@ -151,8 +161,8 @@ local plugins = {
     event = "VeryLazy",
     enabled = true,
     keys = {
-      { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)
