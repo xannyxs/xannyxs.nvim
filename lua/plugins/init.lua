@@ -47,6 +47,11 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      vim.g.userLanguages = {
+        eelixir = "html-eex",
+        eruby = "erb",
+        rust = "html",
+      }
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
@@ -67,6 +72,7 @@ local plugins = {
         "yaml-language-server",
         "vue-language-server",
         "rustywind",
+        "astro-language-server",
 
         -- Python
         "black",
@@ -128,6 +134,7 @@ local plugins = {
   {
     "windwp/nvim-ts-autotag",
     ft = {
+      "astro",
       "javascript",
       "javascriptreact",
       "typescript",
@@ -161,8 +168,8 @@ local plugins = {
     event = "VeryLazy",
     enabled = true,
     keys = {
-      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
     config = function(_, opts)

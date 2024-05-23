@@ -3,20 +3,35 @@ local configs = require "nvchad.configs.lspconfig"
 local servers = {
   html = {},
   cssls = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    filetypes = { "rust", "rs" },
+    settings = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
   tsserver = {},
-  tailwindcss = {},
   bashls = {},
   pyright = {},
   volar = {},
   cmake = {},
   asm_lsp = {},
+  astro = {},
 
   clangd = {
     on_attach = function(client, bufnr)
       client.server_capabilities.signatureHelpProvider = false
       configs.on_attach(client, bufnr)
     end,
+  },
+  tailwindcss = {
+    filetypes = { "rust", "rs" },
+    experimental = {
+      classRegex = {
+        [[class=\{classes!\("([^"]*)"\)\}]],
+      },
+    },
   },
 }
 

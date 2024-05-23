@@ -9,11 +9,7 @@ local sources = {
   -- Typescript
   formatting.prettierd,
   formatting.stylua,
-  -- formatting.eslint_d,
   formatting.rustywind,
-
-  -- Rust
-  -- formatting.rustfmt, (Deprecated)
 
   -- CPP
   formatting.clang_format,
