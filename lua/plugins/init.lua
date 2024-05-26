@@ -68,6 +68,7 @@ local plugins = {
         "stylua",
         "bash-language-server",
         "tailwindcss-language-server",
+        "css-lsp",
         "rust-analyzer",
         "yaml-language-server",
         "vue-language-server",
@@ -202,6 +203,75 @@ local plugins = {
   {
     "Civitasv/cmake-tools.nvim",
     dependencies = "nvim-lua/plenary.nvim",
+  },
+  {
+    "wuelnerdotexe/vim-astro",
+    opts = {
+      astro_typescript = true,
+      astro_stylus = "enable",
+    },
+  },
+  {
+    "VonHeikemen/fine-cmdline.nvim",
+    event = "VimEnter",
+    dependencies = {
+      { "MunifTanjim/nui.nvim" },
+    },
+    config = function()
+      require("fine-cmdline").setup {
+        cmdline = {
+          prompt = " 󰘳  ",
+        },
+      }
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    event = "BufWinEnter",
+    config = function()
+      vim.notify = require "notify"
+      ---@diagnostic disable-next-line
+      vim.notify.setup {
+        background_colour = "#1c2433",
+        top_down = true,
+      }
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = { "VeryLazy", "LspAttach" },
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
+  {
+    "utilyre/barbecue.nvim",
+    event = "VeryLazy",
+    name = "barbecue",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      theme = {
+        dirname = { fg = "#c3cfd9" },
+        basename = { bold = true },
+        context = { fg = "#c3cfd9" },
+      },
+    },
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup {
+        keywords = {
+          GROUP = { icon = " ", color = "hint" },
+        },
+        highlight = { multiline = true },
+      }
+    end,
   },
 }
 

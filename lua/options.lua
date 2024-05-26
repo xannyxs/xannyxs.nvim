@@ -3,6 +3,7 @@ require "nvchad.options"
 vim.g.loaded_python3_provider = 1
 vim.opt.colorcolumn = "80"
 vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
 local autocmd = vim.api.nvim_create_autocmd
 

@@ -26,7 +26,19 @@ local servers = {
     end,
   },
   tailwindcss = {
-    filetypes = { "rust", "rs" },
+    filetypes = {
+      "html",
+      "css",
+      "scss",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "svelte",
+      "rust",
+      "rs",
+    },
     experimental = {
       classRegex = {
         [[class=\{classes!\("([^"]*)"\)\}]],
@@ -35,9 +47,19 @@ local servers = {
   },
 }
 
+local function combine_on_attach(original_on_attach)
+  return function(client, bufnr)
+    if original_on_attach then
+      original_on_attach(client, bufnr)
+    end
+
+    require("lsp_signature").on_attach({ bind = true }, bufnr)
+  end
+end
+
 for name, opts in pairs(servers) do
   opts.on_init = configs.on_init
-  opts.on_attach = opts.on_attach or configs.on_attach
+  opts.on_attach = combine_on_attach(opts.on_attach or configs.on_attach)
   opts.capabilities = configs.capabilities
 
   require("lspconfig")[name].setup(opts)
