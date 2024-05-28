@@ -7,7 +7,9 @@ local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
   -- Typescript
-  formatting.prettierd,
+  formatting.prettierd.with {
+    filetypes = { "astro" },
+  },
   formatting.stylua,
   formatting.rustywind,
 

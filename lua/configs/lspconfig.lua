@@ -38,6 +38,7 @@ local servers = {
       "svelte",
       "rust",
       "rs",
+      "astro",
     },
     experimental = {
       classRegex = {
