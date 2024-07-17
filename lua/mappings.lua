@@ -24,3 +24,7 @@ map("n", ":", "<cmd>FineCmdline<CR>", { desc = "CMD enter command mode" })
 
 -- The commented-out mapping for saving files
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+map("n", "<leader>gl", function()
+  vim.diagnostic.open_float { border = "rounded" }
+end, { desc = "Line Diagnostics" })
