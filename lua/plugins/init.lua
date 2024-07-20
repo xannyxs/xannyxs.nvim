@@ -150,39 +150,6 @@ local plugins = {
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
   },
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  --   config = function()
-  --     require("chatgpt").setup {
-  --       api_key_cmd = "bw get password Chatgpt",
-  --     }
-  --   end,
-  -- },
-  -- {
-  --   "ggandor/leap.nvim",
-  --   event = "VeryLazy",
-  --   enabled = true,
-  --   keys = {
-  --     { "s",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-  --     { "S",  mode = { "n", "x", "o" }, desc = "Leap backward to" },
-  --     { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-  --   },
-  --   config = function(_, opts)
-  --     local leap = require "leap"
-  --     for k, v in pairs(opts) do
-  --       leap.opts[k] = v
-  --     end
-  --     leap.add_default_mappings(true)
-  --     vim.keymap.del({ "x", "o" }, "x")
-  --     vim.keymap.del({ "x", "o" }, "X")
-  --   end,
-  -- },
   {
     "iamcco/markdown-preview.nvim",
     event = "VeryLazy",
@@ -217,20 +184,8 @@ local plugins = {
     config = function()
       require("fine-cmdline").setup {
         cmdline = {
-          prompt = " 󰘳  ",
+          prompt = " >  ",
         },
-      }
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    event = "BufWinEnter",
-    config = function()
-      vim.notify = require "notify"
-      ---@diagnostic disable-next-line
-      vim.notify.setup {
-        background_colour = "#1c2433",
-        top_down = true,
       }
     end,
   },
