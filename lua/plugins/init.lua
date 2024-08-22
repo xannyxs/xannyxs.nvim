@@ -211,6 +211,28 @@ local plugins = {
         context = { fg = "#c3cfd9" },
       },
     },
+    config = function()
+      -- triggers CursorHold event faster
+      vim.opt.updatetime = 200
+
+      local barbecue = require "barbecue"
+      barbecue.setup(opts)
+
+      local barbecue_ui = require "barbecue.ui"
+
+      vim.api.nvim_create_autocmd({
+        "WinResized",
+        "BufWinEnter",
+        "CursorHold",
+        "InsertLeave",
+        "BufModifiedSet",
+      }, {
+        group = vim.api.nvim_create_augroup("barbecue.updater", { clear = true }),
+        callback = function()
+          barbecue_ui.update()
+        end,
+      })
+    end,
   },
   {
     "folke/todo-comments.nvim",
