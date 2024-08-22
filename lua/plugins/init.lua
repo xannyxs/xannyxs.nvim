@@ -218,8 +218,6 @@ local plugins = {
       local barbecue = require "barbecue"
       barbecue.setup(opts)
 
-      local barbecue_ui = require "barbecue.ui"
-
       vim.api.nvim_create_autocmd({
         "WinResized",
         "BufWinEnter",
@@ -227,9 +225,12 @@ local plugins = {
         "InsertLeave",
         "BufModifiedSet",
       }, {
-        group = vim.api.nvim_create_augroup("barbecue.updater", { clear = true }),
+        group = vim.api.nvim_create_augroup(
+          "barbecue.updater",
+          { clear = true }
+        ),
         callback = function()
-          barbecue_ui.update()
+          require("barbecue.ui").update()
         end,
       })
     end,
