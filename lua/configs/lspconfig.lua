@@ -1,4 +1,5 @@
 local configs = require "nvchad.configs.lspconfig"
+local util = require "lspconfig.util"
 
 vim.diagnostic.config {
   virtual_text = true,
@@ -36,6 +37,9 @@ local servers = {
       },
     },
   },
+  biome = {},
+  eslint = {},
+  jsonls = {},
   tsserver = {},
   bashls = {},
   pyright = {},

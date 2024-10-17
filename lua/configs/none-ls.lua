@@ -6,26 +6,15 @@ local lint = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
-  -- Typescript
-  formatting.prettierd.with {
-    filetypes = { "astro" },
-  },
-  formatting.stylua,
-  formatting.rustywind,
-
   -- CPP
-  formatting.clang_format,
-  formatting.cmake_format,
   diagnostics.cmake_lint,
 
   -- Assembly
-  formatting.asmfmt,
   diagnostics.checkmake,
 
   -- Python
   diagnostics.mypy,
   diagnostics.pylint,
-  formatting.black,
 }
 
 local opts = {
