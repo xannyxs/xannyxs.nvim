@@ -1,11 +1,4 @@
 local plugins = {
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "configs.none-ls"
-  --   end,
-  -- },
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",

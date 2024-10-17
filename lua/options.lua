@@ -14,10 +14,3 @@ autocmd("VimEnter", {
 autocmd("VimLeavePre", {
   command = ":silent !kitty @ set-spacing padding=20 margin=10",
 })
-
--- autocmd("BufWritePre", {
---   pattern = "*",
---   callback = function(args)
---     require("conform").format { bufnr = args.buf }
---   end,
--- })
