@@ -58,42 +58,6 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    -- opts = {
-    --   ensure_installed = {
-    --     "lua-language-server",
-    --     "typescript-language-server",
-    --     "html-lsp",
-    --     "prettierd",
-    --     "eslint_d",
-    --     "stylua",
-    --     "bash-language-server",
-    --     "tailwindcss-language-server",
-    --     "css-lsp",
-    --     "rust-analyzer",
-    --     "yaml-language-server",
-    --     "vue-language-server",
-    --     "rustywind",
-    --     "astro-language-server",
-    --
-    --     -- Python
-    --     "black",
-    --     "pylint",
-    --     "pyright",
-    --     "mypy",
-    --
-    --     -- C++
-    --     "clangd",
-    --     "clang-format",
-    --     "codelldb",
-    --     "cmake-language-server",
-    --     "cmakelint",
-    --
-    --     -- Low-level
-    --     "asm-lsp",
-    --     "asmfmt",
-    --     "checkmake",
-    --   },
-    -- },
   },
   {
     "nvim-treesitter/nvim-treesitter",

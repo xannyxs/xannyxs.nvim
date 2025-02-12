@@ -1,8 +1,6 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require "null-ls"
 
-local formatting = null_ls.builtins.formatting
-local lint = null_ls.builtins.code_actions
 local diagnostics = null_ls.builtins.diagnostics
 
 local sources = {
@@ -13,7 +11,6 @@ local sources = {
   diagnostics.checkmake,
 
   -- Python
-  diagnostics.mypy,
   diagnostics.pylint,
 }
 

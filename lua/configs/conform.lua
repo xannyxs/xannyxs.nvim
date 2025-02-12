@@ -1,25 +1,16 @@
 local conform = require "conform"
 
-local function formatter(bufnr)
-  local has_biome = vim.fn.findfile("biome.json", ".;") ~= ""
-  if has_biome then
-    return { "biome" }
-  else
-    return { "prettier" }
-  end
-end
-
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     nix = { "nixfmt" },
 
-    ["cmake"] = { "cmake_format" },
-    asm = { "asmfmt" },
-
     -- Low-Level
     cpp = { "clang_format" },
     c = { "clang_format" },
+    cmake = { "cmake_format" },
+    asm = { "asmfmt" },
+    rust = { "rustfmt" },
 
     -- Front - End
     javascript = { "biome", "rustywind" },
@@ -30,6 +21,7 @@ local options = {
     css = { "rustywind" },
 
     python = { "black" },
+    markdown = { "markdownlint-cli2" },
   },
   format_on_save = {
     timeout_ms = 500,
@@ -38,8 +30,7 @@ local options = {
   format = {
     timeout_ms = 500,
     lsp_fallback = true,
-    stop_after_first = true -- This is the new option to replace the nested syntax
-  }
+  },
 }
 
 conform.setup(options)

@@ -43,7 +43,6 @@ local servers = {
   jsonls = {},
   ts_ls = {},
   bashls = {},
-  pyright = {},
   volar = {},
   cmake = {},
   asm_lsp = {},
@@ -54,27 +53,25 @@ local servers = {
       configs.on_attach(client, bufnr)
     end,
   },
-  tailwindcss = {
-    filetypes = {
-      "html",
-      "css",
-      "scss",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "vue",
-      "svelte",
-      "rust",
-      "rs",
-      "astro",
-    },
-    experimental = {
-      classRegex = {
-        [[class=\{classes!\("([^"]*)"\)\}]],
+  pyright = {
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "basic",
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
+        },
       },
     },
   },
+  ruff = {
+    on_attach = function(client, bufnr)
+      -- Disable hover in favor of Pyright
+      client.server_capabilities.hoverProvider = false
+    end,
+  },
+  tailwindcss = {},
 }
 
 local function combine_on_attach(original_on_attach)
