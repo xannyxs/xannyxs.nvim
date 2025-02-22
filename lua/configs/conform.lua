@@ -21,7 +21,7 @@ local options = {
     css = { "rustywind" },
 
     python = { "black" },
-    markdown = { "markdownlint-cli2" },
+    markdown = { "markdownlint" },
   },
   format_on_save = {
     timeout_ms = 500,

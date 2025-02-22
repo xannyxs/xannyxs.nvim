@@ -7,6 +7,10 @@ local plugins = {
     end,
   },
   {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -213,6 +217,15 @@ local plugins = {
         highlight = { multiline = true },
       }
     end,
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "rust", "toml" },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^5", -- Recommended
+    lazy = false,
   },
 }
 

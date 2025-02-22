@@ -29,14 +29,18 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 local servers = {
   html = {},
   cssls = {},
-  rust_analyzer = {
-    filetypes = { "rust", "rs" },
-    settings = {
-      checkOnSave = {
-        command = "clippy",
-      },
-    },
-  },
+  -- rust_analyzer = {
+  --   cargo = {
+  --     allFeatures = true,
+  --   },
+  --   settings = {
+  --     ["rust-analyzer"] = {
+  --       checkOnSave = {
+  --         command = "clippy",
+  --       },
+  --     },
+  --   },
+  -- },
   biome = {},
   eslint = {},
   ["nil_ls"] = {},
